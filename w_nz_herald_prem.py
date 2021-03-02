@@ -38,12 +38,8 @@ def ScrapeMySoup(soup):
     if debug == True : print(set([t.parent.name for t in s_text]))
     r_output = ''
     blacklist = ['[document]','script','header','html','meta','head','input','script',
-        #'p',                                # WvdS
-        'head','button','div','a','h1','h2','h3','h4','time','small',
-        #'span',                            # WvdS
-        #'title',                           # WvdS
-        'figcaption']
-        # there may be more elements you don't want, such as "style", etc.   
+        'head','button','div','a','h1','h2','h3','h4','time','small','figcaption']
+        #'span','title','p'# there may be more elements you don't want, such as "style", etc.   
     for t in s_text:
         if t.parent.name not in blacklist:
             r_output += '{}'.format(t) + '\n'
@@ -66,7 +62,7 @@ class ShowArticle():
         self.updater()
         self.win.mainloop()
     def updater(self):
-        self.ctr -= 1
+        self.ctr -= 10
         update_label = f"Next refresh in {str(self.ctr)} seconds."
         self.win.title(update_label)
         if self.ctr > 0:
