@@ -1,0 +1,6 @@
+---
+debug : True                                                      # will toggle the debug prints
+window : True                                                     # will toggle the TKinter window
+URLS:
+  - https://www.nzherald.co.nz/business/what-business-leaders-really-want-from-government/KPDBNBBK2NRPADUR7ADSZ64NKA/
+  - https://www.nzherald.co.nz/business/creation-of-payments-giant-leaves-former-blues-shareholder-murray-bolton-with-a-half-billion-stake/7N4A3AQKXYOTWODKD5BBIS4N24/
