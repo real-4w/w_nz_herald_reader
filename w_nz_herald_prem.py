@@ -1,8 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from tkinter.constants import LEFT
-import logging, yaml, datetime
-from time import sleep
+import yaml
 import tkinter as tk
 import textwrap
 debug = False
@@ -18,55 +17,33 @@ URLS = {"https://www.nzherald.co.nz/business/what-business-leaders-really-want-f
 def GetMySoup (URL):
     """This function takes a URL and returns a parsed soup."""
     if debug == True : print("+-" * 30, "\nStep 1: Getting URL: ", URL)
-    s1 = requests.Session()
+    #s1 = requests.Session()
     header1 = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
     page1 = requests.get(URL, headers=header1)
     if debug == True :
         print("Page: ", page1)
         input("Enter to continue...")
     my_soup = BeautifulSoup(page1.content, 'lxml')
-    #if debug == True :
-    #    print(my_soup)
-    #    input("Enter to continue...")
     return(my_soup)
 #==============================================================================
-# step S: Scrape the #2 table: get the TDs
+# step S: Scrape the soup & wrap text
 #==============================================================================
 def ScrapeMySoup(soup):
-    """This function scrapes my soup object and returns a list of strings."""
+    """This function scrapes my soup object and returns a wrapped string."""
     if debug == True : print("+-" * 30, "\nStep 2: Scraping the Soup.")
     s_content = soup.find_all("title")
     if debug == True : print(s_content)
     s_text = soup.find_all(text=True)
     #if debug == True : print(s_text)
-    #https://matix.io/extract-text-from-webpage-using-beautifulsoup-and-python/
     if debug == True : print(set([t.parent.name for t in s_text]))
     r_output = ''
-    blacklist = [
-        '[document]',
-        'script',
-        'header',
-        'html',
-        'meta',
-        'head', 
-        'input',
-        'script',
+    blacklist = ['[document]','script','header','html','meta','head','input','script',
         #'p',                                # WvdS
-        'head',
-        'button',
-        'div',
-        'a',
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'time',
-        'small',
+        'head','button','div','a','h1','h2','h3','h4','time','small',
         #'span',                            # WvdS
         #'title',                           # WvdS
-        'figcaption',
-        # there may be more elements you don't want, such as "style", etc.
-        ]
+        'figcaption']
+        # there may be more elements you don't want, such as "style", etc.   
     for t in s_text:
         if t.parent.name not in blacklist:
             r_output += '{}\n '.format(t)
