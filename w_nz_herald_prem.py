@@ -62,7 +62,7 @@ class ShowArticle():
         self.updater()
         self.win.mainloop()
     def updater(self):
-        self.ctr -= 10
+        self.ctr -= 1
         update_label = f"Next refresh in {str(self.ctr)} seconds."
         self.win.title(update_label)
         if self.ctr > 0:

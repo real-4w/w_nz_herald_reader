@@ -1,5 +1,5 @@
 ---
-debug : True                                                      # will toggle the debug prints
+debug : False                                                     # will toggle the debug prints
 window : True                                                     # will toggle the TKinter window
 URLS:                                                             # list of premium articles
   - https://www.nzherald.co.nz/business/what-business-leaders-really-want-from-government/KPDBNBBK2NRPADUR7ADSZ64NKA/
