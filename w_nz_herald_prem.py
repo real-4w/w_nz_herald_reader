@@ -4,14 +4,14 @@ from tkinter.constants import LEFT
 import yaml
 import tkinter as tk
 import textwrap
-debug = False
-window = True
 #==============================================================================
-# List of Articles
-#==============================================================================
-URLS = {"https://www.nzherald.co.nz/business/what-business-leaders-really-want-from-government/KPDBNBBK2NRPADUR7ADSZ64NKA/",
-    "https://www.nzherald.co.nz/business/creation-of-payments-giant-leaves-former-blues-shareholder-murray-bolton-with-a-half-billion-stake/7N4A3AQKXYOTWODKD5BBIS4N24/"
-    }
+def ProcessYAML (yaml_file) :
+    '''This function opens the yaml file and returns the data object.'''
+    with open(yaml_file) as f:
+        y_data = yaml.load(f, Loader=yaml.FullLoader)
+        debug = y_data['debug']
+        if debug == True : print("YAML file:\n", y_data)
+    return (debug, y_data)   
 #==============================================================================
 # step 1: load URL into BeautifulSoup
 #==============================================================================
@@ -75,7 +75,10 @@ class ShowArticle():
             self.ctr = 60
             self.win.after(1000, self.updater)
 #============================================================================================================================
-if __name__ == "__main__" :                                     # execute only if run as a script
+if __name__ == "__main__" :                                                 # execute only if run as a script
+    debug, yaml_data = ProcessYAML('config.yaml')                           # yaml settings are global variables
+    window = yaml_data['window']
+    URLS = yaml_data['URLS']                                                # List of Articles stored in yaml file
     news_list = []
     for target in URLS :
         if debug == True : print(f"{len(URLS)} URLS:{URLS}")
