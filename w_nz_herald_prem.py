@@ -1,16 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 from tkinter.constants import LEFT
 import logging, yaml, datetime
-import os
 from time import sleep
 import tkinter as tk
-debug = True
+import textwrap
+debug = False
+window = True
 #==============================================================================
 # List of Articles
 #==============================================================================
-URLS = {"https://www.nzherald.co.nz/business/online-ghosts-facebooks-millennial-reach-is-thousands-above-nz-population/PR6ZSNI6EZIVRWKDB65WMCC4Y4/"
+URLS = {"https://www.nzherald.co.nz/business/what-business-leaders-really-want-from-government/KPDBNBBK2NRPADUR7ADSZ64NKA/"
     }
 #==============================================================================
 # step 1: load URL into BeautifulSoup
@@ -41,7 +41,7 @@ def ScrapeMySoup(soup):
     #if debug == True : print(s_text)
     #https://matix.io/extract-text-from-webpage-using-beautifulsoup-and-python/
     if debug == True : print(set([t.parent.name for t in s_text]))
-    output = ''
+    r_output = ''
     blacklist = [
         '[document]',
         'script',
@@ -69,30 +69,27 @@ def ScrapeMySoup(soup):
         ]
     for t in s_text:
         if t.parent.name not in blacklist:
-            output += '{}\n '.format(t)
-    #print(output)
+            r_output += '{}\n '.format(t)
+    wrapper = textwrap.TextWrapper(width=200) 
+    output = wrapper.fill(text=r_output)
     return(output)
 
 class ShowArticle():
     def __init__(self):
         self.win = tk.Tk()
         self.win.title("NZ Herald Article.")
-        self.win.minsize(640, 480)
-        self.ctr = 2
-        #self.timer_var = tk.StringVar()
+        self.win.minsize(1280, 960)
+        self.ctr = 1
         self.article_var = tk.StringVar()
         article_txt = f"NZ Herald premium Article:\n"
         self.article_var.set(article_txt)
         w_lab=tk.Label(self.win, textvariable=self.article_var, justify=tk.LEFT)
         w_lab.place(x=20, y=0)
-        #lab=tk.Label(self.win, textvariable=self.timer_var, bg='#40E0D0', fg='#FF0000')
-        #lab.place(x=20, y=150)
         self.updater()
         self.win.mainloop()
     def updater(self):
         self.ctr -= 1
         update_label = f"Next refresh in {str(self.ctr)} seconds."
-        #self.timer_var.set(update_label)
         self.win.title(update_label)
         if self.ctr > 0:
             self.win.after(1000, self.updater)
@@ -102,14 +99,11 @@ class ShowArticle():
             self.ctr = 60
             self.win.after(1000, self.updater)
 #============================================================================================================================
-
-
 if __name__ == "__main__" :                                     # execute only if run as a script
     for target in URLS :
         if debug == True :
             print(f"{URLS}")
         nzh_soup = GetMySoup(target)
         article= ScrapeMySoup(nzh_soup)
-        #print(article)
-    
-    SA=ShowArticle()
+        if debug == True : print(article)
+    if window == True : SA=ShowArticle()
