@@ -1,6 +1,7 @@
 ---
 debug : True                                                      # will toggle the debug prints
 window : True                                                     # will toggle the TKinter window
-URLS:
+URLS:                                                             # list of premium articles
   - https://www.nzherald.co.nz/business/what-business-leaders-really-want-from-government/KPDBNBBK2NRPADUR7ADSZ64NKA/
   - https://www.nzherald.co.nz/business/creation-of-payments-giant-leaves-former-blues-shareholder-murray-bolton-with-a-half-billion-stake/7N4A3AQKXYOTWODKD5BBIS4N24/
+  - https://www.nzherald.co.nz/business/watch-rocket-lab-reveals-giant-crew-capable-neutron-that-will-be-funded-by-its-6b-nasdaq-listing/Z7ZSXK22GMVVWN5RUFFXVP3NEA/
