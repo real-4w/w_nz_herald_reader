@@ -9,7 +9,8 @@ window = True
 #==============================================================================
 # List of Articles
 #==============================================================================
-URLS = {"https://www.nzherald.co.nz/business/what-business-leaders-really-want-from-government/KPDBNBBK2NRPADUR7ADSZ64NKA/"
+URLS = {"https://www.nzherald.co.nz/business/what-business-leaders-really-want-from-government/KPDBNBBK2NRPADUR7ADSZ64NKA/",
+    "https://www.nzherald.co.nz/business/creation-of-payments-giant-leaves-former-blues-shareholder-murray-bolton-with-a-half-billion-stake/7N4A3AQKXYOTWODKD5BBIS4N24/"
     }
 #==============================================================================
 # step 1: load URL into BeautifulSoup
@@ -26,7 +27,7 @@ def GetMySoup (URL):
     my_soup = BeautifulSoup(page1.content, 'lxml')
     return(my_soup)
 #==============================================================================
-# step S: Scrape the soup & wrap text
+# step 2: Scrape the soup & wrap text
 #==============================================================================
 def ScrapeMySoup(soup):
     """This function scrapes my soup object and returns a wrapped string."""
@@ -34,7 +35,6 @@ def ScrapeMySoup(soup):
     s_content = soup.find_all("title")
     if debug == True : print(s_content)
     s_text = soup.find_all(text=True)
-    #if debug == True : print(s_text)
     if debug == True : print(set([t.parent.name for t in s_text]))
     r_output = ''
     blacklist = ['[document]','script','header','html','meta','head','input','script',
@@ -46,7 +46,7 @@ def ScrapeMySoup(soup):
         # there may be more elements you don't want, such as "style", etc.   
     for t in s_text:
         if t.parent.name not in blacklist:
-            r_output += '{}\n '.format(t)
+            r_output += '{}'.format(t) + '\n'
     wrapper = textwrap.TextWrapper(width=200) 
     output = wrapper.fill(text=r_output)
     return(output)
@@ -57,6 +57,7 @@ class ShowArticle():
         self.win.title("NZ Herald Article.")
         self.win.minsize(1280, 960)
         self.ctr = 1
+        self.ai = 0
         self.article_var = tk.StringVar()
         article_txt = f"NZ Herald premium Article:\n"
         self.article_var.set(article_txt)
@@ -71,16 +72,20 @@ class ShowArticle():
         if self.ctr > 0:
             self.win.after(1000, self.updater)
         else:
-            article_txt = article
+            article_txt = news_list[self.ai]
+            if self.ai < len(news_list)-1 : self.ai += 1
+            else : self.ai = 0
             self.article_var.set(article_txt)
             self.ctr = 60
             self.win.after(1000, self.updater)
 #============================================================================================================================
 if __name__ == "__main__" :                                     # execute only if run as a script
+    news_list = []
     for target in URLS :
-        if debug == True :
-            print(f"{URLS}")
+        if debug == True : print(f"{len(URLS)} URLS:{URLS}")
         nzh_soup = GetMySoup(target)
         article= ScrapeMySoup(nzh_soup)
-        if debug == True : print(article)
+        #if debug == True : print(article)
+        news_list.append(article)    
+        if debug == True :print(f"Length news_list is now {len(news_list)}")
     if window == True : SA=ShowArticle()
