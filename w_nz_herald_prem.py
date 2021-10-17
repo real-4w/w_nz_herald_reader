@@ -75,8 +75,8 @@ class ShowArticle():
             self.ctr = 60
             self.win.after(1000, self.updater)
 #============================================================================================================================
+debug, yaml_data = ProcessYAML('config.yaml')                           # yaml settings are global variables
 if __name__ == "__main__" :                                                 # execute only if run as a script
-    debug, yaml_data = ProcessYAML('config.yaml')                           # yaml settings are global variables
     window = yaml_data['window']
     URLS = yaml_data['URLS']                                                # List of Articles stored in yaml file
     news_list = []
