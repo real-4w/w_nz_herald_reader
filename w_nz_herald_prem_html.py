@@ -2,9 +2,9 @@ import w_nz_herald_prem_scrape as w_scrape
 import time
 #============================================================================================================================
 debug, yaml_data = w_scrape.ProcessYAML('config.yaml')                           # yaml settings are global variables
-if __name__ == "__main__" :                                                 # execute only if run as a script
+if __name__ == "__main__" :                                                      # execute only if run as a script
     window = yaml_data['window']
-    URLS = yaml_data['URLS']                                                # List of Articles stored in yaml file
+    URLS = yaml_data['URLS']                                                     # List of Articles stored in yaml file
     news_list = []
     doc_name = time.strftime("%Y%m%d-%H%M%S") + '_NZ_Herald_Premium.html'
     w_html = open(doc_name,"w", encoding="utf-8")
