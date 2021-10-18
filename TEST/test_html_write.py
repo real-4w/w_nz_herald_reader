@@ -1,5 +1,6 @@
-
-Func = open("nz_h_p.html","w")
+import time
+doc_name = time.strftime("%Y%m%d-%H%M%S") + '_NZ_Herald_Premium.html'
+Func = open("doc_name","w")
   
 # Adding input data to the HTML file
 Func.write("<html>\n<head>\n<title> \nOutput Data in an HTML file\n \
@@ -9,5 +10,5 @@ Func.write("<html>\n<head>\n<title> \nOutput Data in an HTML file\n \
 
 # Saving the data into the HTML file
 Func.close()
-Func = open("nz_h_p.html","a")
+Func = open(doc_name,"a")
 Func.write("Lalala.")  
