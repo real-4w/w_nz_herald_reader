@@ -1,3 +1,6 @@
+#==============================================================================
+# helper modules for the TKinter and HTML scraping output generators
+#==============================================================================
 import requests
 from bs4 import BeautifulSoup
 import yaml
@@ -46,3 +49,4 @@ def ScrapeMySoup(soup):
     wrapper = textwrap.TextWrapper(width=200) 
     output = wrapper.fill(text=r_output)
     return(output)
+#==============================================================================
