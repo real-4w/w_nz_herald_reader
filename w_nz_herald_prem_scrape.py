@@ -14,7 +14,7 @@ def ProcessYAML (yaml_file) :
         if debug == True : print("YAML file:\n", y_data)
     return (debug, y_data)   
 #==============================================================================
-debug, yaml_data = ProcessYAML('config.yaml')                           # yaml settings are global variables
+debug, yaml_data = ProcessYAML('config.yaml')                          
 #==============================================================================
 # step 1: load URL into BeautifulSoup
 #==============================================================================
