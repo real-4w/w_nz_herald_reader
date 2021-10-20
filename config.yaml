@@ -2,5 +2,6 @@
 debug : False                                                     # will toggle the debug prints
 window : True                                                     # will toggle the TKinter window
 URLS:                                                             # list of premium articles
+  - https://www.nzherald.co.nz/business/covid-19-delta-outbreak-businesses-optimistic-about-national-partys-covid-recovery-plan/5YM4CANJF4ZXJ6TRTOP33VGMYU/
   - https://www.nzherald.co.nz/business/covid-19-delta-outbreak-auckland-businesses-on-the-brink-need-help-now-industry-groups-say/QRX7ILG2AFTWFW6CSPO5IJEVHE/
   - https://www.nzherald.co.nz/business/covid-19-delta-outbreak-andrew-barnes-on-miq-and-the-vaccinated-time-to-let-people-go-and-come-home/V5EBW5GK6N46GXEVX5F4HPUFXQ/

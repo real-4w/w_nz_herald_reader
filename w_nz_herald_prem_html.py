@@ -8,7 +8,7 @@ if __name__ == "__main__" :                                                     
     news_list = []
     doc_name = time.strftime("%Y%m%d-%H%M%S") + '_NZ_Herald_Premium.html'
     w_html = open(doc_name,"w", encoding="utf-8")
-    w_html.write("<html>\n<head>\n<title> \nOutput Data in an HTML file\n \
+    w_html.write("<html>\n<head>\n<title> \nNZ Herald Premium Reader\n \
            </title>\n</head> <body> <h1>Welcome to \
            <font color = #00b300>NZ Herald Premium Reader</font></h1>\n \
            <h2>Premium news the cheap way.</h2>\n</body></html>")
