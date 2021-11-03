@@ -2,4 +2,5 @@
 debug : False                                                     # will toggle the debug prints
 window : True                                                     # will toggle the TKinter window
 URLS:                                                             # list of premium articles
+  - https://www.nzherald.co.nz/business/broadband-wars-chorus-puts-cut-price-ufb-fibre-plan-on-the-table/AA3LO7TDCNKRU6UQUWADVWITGE/
   - https://www.nzherald.co.nz/business/i-may-be-forced-to-sell-85-auckland-rentals-ockham-boss-mark-todd-on-tax-change/3RKGDCUZH3DDMTFXYWANS6SAPY/
