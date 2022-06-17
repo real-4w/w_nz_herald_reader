@@ -18,7 +18,4 @@ if __name__ == "__main__" :                                                     
             myTeamsMessage.printme()
         else :
             myTeamsMessage.send()
-        
-    
-    
    
