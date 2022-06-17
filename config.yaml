@@ -1,5 +1,7 @@
 ---
 debug : False                                                     # will toggle the debug prints
 window : True                                                     # will toggle the TKinter window
+web_hook: https://delegats.webhook.office.com/webhookb2/c9253c40-2e74-4ace-93ce-6b1da38efd39@7cbee60a-1a1b-45c1-b309-91d0708bc7a5/IncomingWebhook/8aa882d15b97494da9dfb61a75558629/624a4b4b-0ff2-4ed6-ab83-16efd24ec434
 URLS:                                                             # list of premium articles
 - https://www.nzherald.co.nz/business/how-chorus-shaped-its-new-office-for-post-pandemic-working/VSMWRWKTEWAFATQIEERVJENKFA/
+#- https://www.nzherald.co.nz/business/nz-stocks-down-again-after-wall-st-fall-central-bank-rate-hikes/FSX3DTGQ42W7HKBXDKSHVTTBIU/
