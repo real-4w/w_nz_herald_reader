@@ -2,4 +2,4 @@
 debug : False                                                     # will toggle the debug prints
 window : True                                                     # will toggle the TKinter window
 URLS:                                                             # list of premium articles
-  - https://www.nzherald.co.nz/business/what-working-from-home-does-to-your-brain/G3KYTJVLZFX7UDNB3UXRMNVVPU/
+- https://www.nzherald.co.nz/business/how-chorus-shaped-its-new-office-for-post-pandemic-working/VSMWRWKTEWAFATQIEERVJENKFA/
