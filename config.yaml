@@ -3,4 +3,4 @@ debug : False                                                     # will toggle 
 window : True                                                     # will toggle the TKinter window
 web_hook: https://delegats.webhook.office.com/webhookb2/c9253c40-2e74-4ace-93ce-6b1da38efd39@7cbee60a-1a1b-45c1-b309-91d0708bc7a5/IncomingWebhook/8aa882d15b97494da9dfb61a75558629/624a4b4b-0ff2-4ed6-ab83-16efd24ec434
 URLS:                                                             # list of premium articles
-- https://www.nzherald.co.nz/entertainment/spys-auckland-power-list-who-really-pulls-the-strings-in-the-city-of-sails/6LKVGMEDYA36H7ZARD5P7EUOCE/
+- https://www.nzherald.co.nz/business/peak-salary-advertised-salaries-hit-record-but-the-market-is-cooling/YEPBEJO74VDVTP36KDDIDECXCM/?utm_campaign=nzh_tw&utm_medium=Social&utm_source=Twitter&utm_campaign=nzh_tw#Echobox=1687115843-1
